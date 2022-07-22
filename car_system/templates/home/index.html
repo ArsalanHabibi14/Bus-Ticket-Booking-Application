@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Car
+{% endblock %}
+
+{% block content %}
+	{% for car in object_list %}
+		<table>
+			<th>Car</th>
+			<th>Avaliabe Chairs</th>
+			<th>Sold Charis</th>
+			<th>Price</th>
+			<th>Goal</th>
+			<th>Time</th>
+			<tr>
+				<td>{{ car.name }}</td>
+				<td>{{ car.total_chairs }}</td>
+				<td>{{ car.chairs }}</td>
+				<td>{{ car.price }}</td>
+				<td>{{ car.goal }}</td>
+				<td>{{ car.expire_time }}</td>
+			</tr>
+			<a href="{% url 'ticket_create_view' car.id %}">Buy A Ticket</a>
+		</table>
+		<hr><br><br>
+	{% endfor %}
+{% endblock content %}
